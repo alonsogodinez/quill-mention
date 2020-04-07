@@ -4,7 +4,7 @@
   "description": "@mentions for the Quill rich text editor",
   "main": "dist/quill.mention.csj.js",
   "module": "dist/quill.mention.esm.js",
-  "repository": "https://github.com/afry/quill-mention.git",
+  "repository": "https://github.com/alonsogodinez/quill-mention.git",
   "author": "Fredrik Sundqvist <fsundqvist@gmail.com>",
   "license": "MIT",
   "files": [
