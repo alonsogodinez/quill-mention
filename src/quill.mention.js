@@ -38,6 +38,7 @@ class Mention {
       isolateCharacter: false,
       fixMentionsToQuill: false,
       defaultMenuOrientation: "bottom",
+      dynamicOrientation: true,
       dataAttributes: ["id", "value", "denotationChar", "link", "target"],
       linkTarget: "_blank",
       onOpen() {
@@ -200,9 +201,9 @@ class Mention {
       this.mentionList.childNodes[
         this.itemIndex
       ].dataset.value = `<a href="${link}" target=${itemTarget ||
-        this.options.linkTarget}>${
+      this.options.linkTarget}>${
         this.mentionList.childNodes[this.itemIndex].dataset.value
-      }`;
+        }`;
     }
     return this.mentionList.childNodes[this.itemIndex].dataset;
   }
@@ -375,7 +376,7 @@ class Mention {
       }
 
       // default to bottom if the top is not visible
-      if (topPos + containerPos.top <= 0) {
+      if (topPos + containerPos.top <= 0 && this.options.dynamicOrientation) {
         let overMentionCharPos = this.options.offsetTop;
 
         if (this.options.fixMentionsToQuill) {
