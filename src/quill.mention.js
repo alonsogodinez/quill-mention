@@ -346,7 +346,7 @@ class Mention {
     const containerPos = this.quill.container.getBoundingClientRect();
     const mentionCharPos = this.quill.getBounds(this.mentionCharPos);
     const containerHeight = this.mentionContainer.offsetHeight;
-
+    const listHeight = this.mentionList.offsetHeight;
     let topPos = this.options.offsetTop;
     let leftPos = this.options.offsetLeft;
 
@@ -359,20 +359,20 @@ class Mention {
     }
 
     if (this.containerRightIsNotVisible(leftPos, containerPos)) {
-      const containerWidth =
-        this.mentionContainer.offsetWidth + this.options.offsetLeft;
+      // const containerWidth =
+      //   this.mentionContainer.offsetWidth + this.options.offsetLeft;
       const quillWidth = containerPos.width;
-      leftPos = quillWidth - containerWidth;
+      const listWidth = this.mentionList.offsetWidth + this.options.offsetLeft;
+      leftPos = quillWidth - listWidth;
     }
 
     // handle vertical positioning
     if (this.options.defaultMenuOrientation === "top") {
       // Attempt to align the mention container with the top of the quill editor
       if (this.options.fixMentionsToQuill) {
-        topPos = -1 * (containerHeight + this.options.offsetTop);
+        topPos = -1 * (listHeight + this.options.offsetTop);
       } else {
-        topPos =
-          mentionCharPos.top - (containerHeight + this.options.offsetTop);
+        topPos = mentionCharPos.top - (listHeight + this.options.offsetTop);
       }
 
       // default to bottom if the top is not visible
