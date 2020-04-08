@@ -28,6 +28,8 @@ class MentionBlot extends Embed {
 
 MentionBlot.blotName = "mention";
 MentionBlot.tagName = "span";
-MentionBlot.className = "mention";
+MentionBlot.className = "quill-mention";
 
-Quill.register(MentionBlot);
+Quill.register({
+  "formats/mention": MentionBlot
+});
