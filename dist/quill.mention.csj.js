@@ -224,8 +224,10 @@ function (_Embed) {
 
 MentionBlot.blotName = "mention";
 MentionBlot.tagName = "span";
-MentionBlot.className = "mention";
-Quill.register(MentionBlot);
+MentionBlot.className = "quill-mention";
+Quill.register({
+  "formats/mention": MentionBlot
+});
 
 var Mention =
 /*#__PURE__*/
